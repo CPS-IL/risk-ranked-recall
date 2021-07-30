@@ -336,8 +336,10 @@ def readDetections(infile):
 
 
 ## Usaage example:
-## Basic flow is to read through detection files to gather list of GT files to load
-## Load the GT and then read detections again and calculate metrics
+## Basic flow is to 
+## Step 1: Read through detection files to gather list of GT files to load
+## Step 2: Load the required GT
+## Step 3: Read detections again and calculate metrics
 def plot_fig_paper(args):
     nets = ["fasterrcnn_resnet50_fpn", "yolov3", "maskrcnn_resnet50_fpn"]
     resolutions = ['320', '416', '608']
@@ -350,6 +352,8 @@ def plot_fig_paper(args):
     for ax_n, net in enumerate(nets):
         for ax_r, res in enumerate(resolutions):
             path = os.path.join(args.detections, net + '-gpu-' + res + "-det.json")
+
+            # Step 1: Read through detection files to gather list of GT files to load
             _, fl = readDetections(path)
             gt_list.update(fl)
 
@@ -360,6 +364,8 @@ def plot_fig_paper(args):
         # if rt == 0.9:
             # continue
         print("Risk thresh = ", rt)
+
+        # Step 2: Load the required GT
         groundtruth, dataset, waymo_frame_map = readWaymoGroundtruth(
                                                     gt_dir=args.groundtruth,
                                                     RRR=False,
@@ -372,7 +378,8 @@ def plot_fig_paper(args):
             for ax_r, res in enumerate(resolutions):
                 path = os.path.join(args.detections, net + '-gpu-' + res + "-det.json")
                 detections, file_list = readDetections(path)
-                
+
+                # Step 3: Read detections again and calculate metrics
                 if rt == -1:
                     result = calcRecall(args, groundtruth, detections, False, True, dataset, waymo_frame_map, 0.8)
                 else:
