@@ -57,7 +57,7 @@ frame context name = 10206293520369375008_2796_800_2816_800
 frame number = 0
 camera name = 1 = waymo_open_dataset.dataset_pb2.CameraName.FRONT
 ```
-Final nested level is a list of detections. Each detection is in the form [x1, y1, x2, y2, class conf, objectness conf, COCO Class ID])
+Final nested level is a list of detections. Each detection is in the form [x1, y1, x2, y2, class conf, objectness conf, COCO Class ID].
 
 ### Ground Truth Dataset (-gt)
 Path to waymo open dataset data *i.e.* top level directory containing all tfrecord files.
