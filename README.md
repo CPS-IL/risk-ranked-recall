@@ -66,7 +66,7 @@ Supports mutilevel lookup through the directory structure.
 ### Output Format
 The included example provides the data for the example shown in the paper.
 
-![Output Graph](./rrr.svg)
+![Output Graph](./waymo_curves.png)
 
 
 ## Citation
