@@ -69,6 +69,11 @@ The included example provides the data for the example shown in the paper.
 ![Output Graph](./waymo_curves.png)
 
 
+## Details
+For a complete description of this project please refer to the following:
+* [Paper](https://arxiv.org/pdf/2106.04146.pdf)
+* [Presentation](Presentation.mp4)
+
 ## Citation
 Bibtex citation for this work:
 ```
